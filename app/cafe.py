@@ -1,4 +1,5 @@
 import datetime
+from typing import Dict, Any
 
 from app.errors import (
     NotVaccinatedError,
@@ -11,7 +12,7 @@ class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor: dict) -> str:
+    def visit_cafe(self, visitor: Dict[str, Any]) -> str:
         if "vaccine" not in visitor:
             raise NotVaccinatedError(
                 f"{visitor.get('name')} is not vaccinated."
